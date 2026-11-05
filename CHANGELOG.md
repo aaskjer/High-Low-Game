@@ -1,0 +1,78 @@
+# Changelog
+
+Releases are in the [release notes](https://github.com/aaskjer/High-Low-Game/releases).
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
+
+## [2.1.0] - Unreleased
+
+### Added
+
+- **Custom triggers.** Every settled guess fires `HLG: Guess Won` or `HLG: Guess Lost`, and `HLG: Guess Settled`
+  always (Custom > Chat Game > High-Low Game), with the guess as arguments: `guessOutcome`, `guessUser`,
+  `guessUserId`, `guessPlatform`, `guessGuess`, `guessPreviousNumber`, `guessNewNumber`, `guessMode`, `guessStake`,
+  `guessAmount`, `guessPreviousPoints`, `guessNewPoints`, `guessCurrency`, `guessFree`, `guessSessionGuesses`,
+  `guessAlltimeGuesses`. `GetLastGuessResult`, run with an Execute C# Method sub-action on the game action, hands
+  the same arguments to any other action. `HLG: New Number` fires when `!highlowsetup` draws one.
+- **Free mode.** A switch on the Game page: nobody wins or loses points, redemptions included, the guesses still
+  count. `!SetFreeHighLow` turns it on and `!EndFreeHighLow` turns it off (moderators; two new commands in the
+  import, disabled until you enable them). The switch is written into the settings file, so the window's pill
+  shows it, chat gets the new Started and Ended messages (Messages page, Free mode), and `HLG: Free Game Start`
+  and `HLG: Free Game End` fire. An action of your own can do the same with an Execute C# Method on
+  `StartFreeGame` or `EndFreeGame`.
+
+## [2.0.0] - Unreleased
+
+The settings window moved into [UIFramework for streamer.bot](https://github.com/aaskjer/UIFramework-Streamer.bot),
+channel points got their stakes and refunds, and the scoreboards work.
+
+### Added
+
+- **A number from the start.** The game action compiles when Streamer.bot starts and draws a number for Twitch,
+  YouTube and Kick, so nobody has to run `!highlowsetup` first. The command still draws and announces a new one;
+  it is now limited to the Moderators group.
+- **Channel point stakes.** Cost, Fixed, Input and Free, set on the Channel points page. Cost and Fixed spend the
+  channel points as the stake and pay a correct guess in points, double on equal. Input takes a bet in the
+  viewer's own points (a number, `all`, `half`, `third`, `quarter`, `random`, `50%` or `2k`); only a wrong
+  `!equal` costs it. Free plays like the chat commands. Minimum and maximum bet apply to Input and Fixed.
+- **Refunds.** Redemptions that do not end in a guess are refunded, played ones are marked as fulfilled, and the
+  guess cooldowns also cover redemptions.
+- **Reward trigger included.** The game action listens to every redemption and plays only the three rewards
+  set in the window, so no trigger has to be added by hand.
+- Equal chance, scoreboard size and the blocked users list are settings now.
+- **German.** With the window's language set to `de` every setting, section and page of the window reads in
+  German; the game ships its own texts with the settings table, the shared ones come from UIFramework.
+
+### Changed
+
+- **The settings window runs on UIFramework.** `[HLG] - .Settings` opens it from its Test trigger. The first time
+  it asks whether to download `UIFramework.dll` from GitHub or to show the folder it belongs in. The window is
+  built from the game's own settings table and window declaration, so the two can never disagree; the settings
+  action is UIFramework's generic stub, the same file in every game, and needs no references of its own.
+- **Points systems.** Tawmae's LOYALTY POINTS is recognised beside StreamUP's Currency Core: whichever is
+  installed names the points variable and the points name, the window shows which, and the Points settings are
+  the fallback.
+- **Settings are kept.** `HLG-Settings.json` stays where it was, and the game reads the old setting names until the
+  window saves them under the new ones. Cooldown messages written with `{0}` and `{1}` still work; new ones use
+  `{user}` and `{seconds}`.
+- Every platform plays. Leave one out by unticking its source on the commands.
+- The scoreboards leave the broadcaster and the bot account out with two switches instead of one per platform.
+- Payouts in channel points mode are paid in points, so `{currency}` is always the points name.
+
+### Fixed
+
+- The scoreboard commands answered nothing, and wins were never recorded, so every scoreboard was empty.
+- Blocked groups had no effect.
+- With Award points off, the outcome message still said points were won; a lost `!equal` deducted points without
+  saying so, and could take a balance below zero.
+- Cooldown messages with `{user}` or `{timeLeft}` were never sent.
+- The outcome message no longer shows a double space or a space before the full stop when no points changed.
+- Opening the settings did nothing in `[HLG] - .Settings`, and every chat command rewrote the settings file.
+
+### Removed
+
+- Trovo support.
+- The platform switches, and the Channel Points Name setting.
+
+## [1.0.0]
+
+- Initial release.
