@@ -3,7 +3,7 @@
 Releases are in the [release notes](https://github.com/aaskjer/High-Low-Game/releases).
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [2.1.0] - Unreleased
+## [2.1.0] - 2026-11-07
 
 ### Added
 
@@ -20,7 +20,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   and `HLG: Free Game End` fire. An action of your own can do the same with an Execute C# Method on
   `StartFreeGame` or `EndFreeGame`.
 
-## [2.0.0] - Unreleased
+### Changed
+
+- The host block in `High-Low Game` and `High-Low Scoreboard` is UIFramework's current one (0.9.11). Nothing changes in
+  the window; the block can now declare fields that follow a dropdown, a locked layout and masked fields.
+
+## [2.0.0] - 2026-11-07
 
 The settings window moved into [UIFramework for streamer.bot](https://github.com/aaskjer/UIFramework-Streamer.bot),
 channel points got their stakes and refunds, and the scoreboards work.
