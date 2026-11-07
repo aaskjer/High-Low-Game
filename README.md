@@ -52,23 +52,10 @@ both numbers. The new number is what the next guess is measured against.
   the window the other chat games share: eight pages, light and dark themes, and every chat message with a live
   preview.
 
----
-
-## ⚙️ Settings window
-
-The settings action opens a window from [UIFramework for streamer.bot](https://github.com/aaskjer/UIFramework-Streamer.bot),
-a separate DLL that is fetched automatically.
-
-- **First open:** a dialog asks whether to download `UIFramework.dll` from the framework's GitHub release into
-  `<Streamer.bot>\UIFramework\lib\`. The file is checked against its published SHA-256 before it is used. *No*
-  opens that folder so you can put the DLL there yourself; *Cancel* leaves everything as it is.
-- **Updates:** when a newer framework release is out, the window asks before it downloads anything. *Cancel* skips
-  that version for good.
-- **Turning the update check off:** put `"autoUpdate": false` into `uiframework.layout.json`, next to the settings
-  file `<Streamer.bot>\Chat Games\High-Low Game\HLG-Settings.json` (create it as `{ "autoUpdate": false }` if it is not there yet). The window then
-  opens with the DLL it has and asks nothing.
-- **Without the window:** the game itself never loads the DLL. Disable the settings action and the game plays on
-  with its settings file, which you can still edit by hand.
+<p align="center">
+  <img src="https://github.com/aaskjer/High-Low-Game/blob/main/Assets/readme/settings-game.png?raw=true" alt="The Game page of the settings window" width="49%">
+  <img src="https://github.com/aaskjer/High-Low-Game/blob/main/Assets/readme/settings-messages.png?raw=true" alt="A message with its chat preview" width="49%">
+</p>
 
 ---
 
@@ -76,7 +63,7 @@ a separate DLL that is fetched automatically.
 
 - **Author:** [aaskjer on Twitch](https://twitch.tv/aaskjer) · [aaskjer.github.io](https://aaskjer.github.io/)
 - **Built for:** [Streamer.bot](https://streamer.bot) by [nate1280](https://www.patreon.com/c/nate1280/home)
-- **Works with:** [Currency Core by StreamUP](https://streamup.tips/product/currency-core)
+- **Works with:** [Currency Core by StreamUP](https://streamup.tips/product/currency-core) · [LOYALTY POINTS by tawmae](https://tawmae.xyz/loyalty-points)
 - **Thanks:** YOU ♡
 
 None of the projects above is affiliated with or endorses High-Low Game.
