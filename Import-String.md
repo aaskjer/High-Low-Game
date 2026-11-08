@@ -1,5 +1,4 @@
-## High-Low Game import string for streamer.bot
- - ![GitHub Release](https://img.shields.io/github/v/release/aaskjer/High-Low-Game)
+## High-Low Game import string for streamer.bot - ![GitHub Release](https://img.shields.io/github/v/release/aaskjer/High-Low-Game)
 ![GitHub Release Date](https://img.shields.io/github/release-date/aaskjer/High-Low-Game)
 
 Version 2.3.0. Copy everything in the box, then in Streamer.bot click **Import** and paste it.
