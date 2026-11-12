@@ -24,8 +24,8 @@
 
 ## 📖 Overview
 
-High-Low Game is a chat game for Streamer.bot. There is always a number from 1 to 100 waiting, drawn when
-Streamer.bot starts. Viewers guess whether the next one will be higher, lower or the same, and the answer names
+High-Low Game is a chat game for Streamer.bot. There is always a number from 1 to 100 waiting, drawn once and
+kept, also when Streamer.bot restarts. Viewers guess whether the next one will be higher, lower or the same, and the answer names
 both numbers. The new number is what the next guess is measured against.
 
 ```
@@ -49,8 +49,8 @@ both numbers. The new number is what the next guess is measured against.
 - 🔔 **Hooks for your own actions.** Custom triggers for every won, lost and settled guess with the guess as
   arguments, for a new number and for Free mode, plus `GetLastGuessResult` for an Execute C# Method.
 - ⚙️ **One settings window.** Built on [UIFramework for streamer.bot](https://github.com/aaskjer/UIFramework-Streamer.bot),
-  the window the other chat games share: eight pages, light and dark themes, and every chat message with a live
-  preview.
+  the window the other chat games share: nine pages, light and dark themes, and every chat message with a live
+  preview. Even the words of the outcome message (*correct*, *won*, ...) are yours to change.
 
 <p align="center">
   <img src="https://github.com/aaskjer/High-Low-Game/blob/main/Assets/readme/settings-game.png?raw=true" alt="The Game page of the settings window" width="49%">
@@ -62,7 +62,7 @@ both numbers. The new number is what the next guess is measured against.
 ## Credits
 
 - **Author:** [aaskjer on Twitch](https://twitch.tv/aaskjer) · [aaskjer.github.io](https://aaskjer.github.io/)
-- **Built for:** [Streamer.bot](https://streamer.bot) by [nate1280](https://www.patreon.com/c/nate1280/home)
+- **Built for:** [Streamer.bot](https://streamer.bot) by [nate1280](https://www.patreon.com/c/nate1280/home), tested with 1.0.7
 - **Works with:** [Currency Core by StreamUP](https://streamup.tips/product/currency-core) · [LOYALTY POINTS by tawmae](https://tawmae.xyz/loyalty-points)
 - **Thanks:** YOU ♡
 
