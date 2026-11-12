@@ -4,18 +4,24 @@
 
 ### Do I have to run `!highlowsetup`?
 
-No. A number is drawn for each platform when Streamer.bot starts. `!highlowsetup` draws a new one and announces
-it in chat, for when you want to show viewers where the game stands.
+No. Each platform has its number from the first start on, and it is kept, also when Streamer.bot restarts.
+`!highlowsetup` draws a new one and announces it in chat, for when you want to show viewers where the game stands.
 
 ### The settings window does not open.
 
 Run the **Test** trigger of `[HLG] - .Settings` and check the Streamer.bot log. On the first run it asks to
-download `UIFramework.dll`; if you chose *No*, put the DLL into the folder it opened (`UIFramework\lib\<version>\`)
-and run the trigger again. *Cancel* leaves a warning in the log and nothing else.
+download `UIFramework.dll`; if you chose *No*, it opened `UIFramework\lib`. Put the DLL into a folder named after
+its version there (`UIFramework\lib\<version>\UIFramework.dll`) and run the trigger again. *Cancel* leaves a warning in the log and nothing else.
 
 ### Nobody can play.
 
-The commands are imported disabled. Enable all seven under **Commands**, group `[HLG] High-Low Game`.
+The commands are imported disabled. Enable them under **Commands**, group `[HLG] High-Low Game`: nine in all,
+the seven to play and to show the scoreboards, and `!SetFreeHighLow` / `!EndFreeHighLow` for moderators.
+
+### Can I rename a command or give it an alias?
+
+Yes. The game knows its commands by their ID, so `!high` can become `!hoch`, or get `!h` beside it, in
+Streamer.bot's **Commands** and still plays.
 
 ### I came from version 1. Are my settings gone?
 
@@ -28,7 +34,8 @@ platform switches are gone (untick a command's source instead). Trovo is no long
 ### Where do the points come from?
 
 From the user variable named under **Points variable** (default `points`), the same one
-[Currency Core](https://streamup.tips/product/currency-core) uses. With Currency Core installed, its settings win.
+[Currency Core](https://streamup.tips/product/currency-core) uses. With Currency Core or
+[LOYALTY POINTS](https://tawmae.xyz/loyalty-points) installed, its settings win; the Game page shows which one.
 
 ### Can a viewer lose points with `!high` or `!low`?
 
@@ -79,3 +86,19 @@ Version 1 never recorded wins. Guesses from before still count; wins are counted
 ### What is a session?
 
 Everything since Streamer.bot last started. Session stats are not saved; all-time stats are.
+
+### Two players have the same number of wins. Who is first?
+
+The one who needed fewer guesses. The same wins in the same number of guesses share a place.
+
+## 💬 Messages
+
+### Can the outcome message be in my language?
+
+Yes, all of it. The message itself is on the Messages page, and so are its **Outcome words**: what `{result}`,
+`{emoji}`, `{sign}` and `{pointsSection}` say (*correct*, *incorrect*, *won*, *lost*, ...).
+
+### A long message is cut into two.
+
+On purpose: YouTube takes 200 characters per message, Twitch and Kick 500. A longer message goes out in pieces,
+cut between words.
