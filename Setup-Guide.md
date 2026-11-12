@@ -30,7 +30,8 @@ Open `[HLG] - .Settings`, right-click its **Test** trigger and choose **Test Tri
 
 The first time, a dialog asks whether to download `UIFramework.dll` from GitHub (checked against its published
 SHA-256) or to show the folder it belongs in, `UIFramework\lib\<version>\` next to Streamer.bot. Nothing is
-downloaded without your click. When a newer UIFramework comes out, opening the window offers it once.
+downloaded without your click. When a newer UIFramework comes out, opening the window offers it and says whether
+Streamer.bot has to be restarted for it.
 
 Everything is saved to `Chat Games\High-Low Game\HLG-Settings.json` in the Streamer.bot folder.
 
