@@ -1,6 +1,7 @@
 # Changelog
 
-Releases are in the [release notes](https://github.com/aaskjer/High-Low-Game/releases).
+Releases from 2.1.0 on are in the [release notes](https://github.com/aaskjer/High-Low-Game/releases); 2.0.0 and
+1.x came out before this repository had releases.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [2.3.2] - 2026-11-12
@@ -8,8 +9,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ### Added
 
 - **aaskjer on Twitch** is back among the links of the About page.
+- **The outcome message speaks your language, all of it.** What `{result}`, `{emoji}`, `{sign}` and
+  `{pointsSection}` say (*correct*, *incorrect*, *won*, *lost*, ...) was fixed English; it is now on the Messages
+  page under **Outcome words**.
+- **Renamed commands still play.** The game and the scoreboard know their commands by their ID, so a command
+  renamed in Streamer.bot or given an alias works as before.
 
 ### Changed
+
+- **A tie on the scoreboard goes to fewer guesses.** With as many wins, the player who needed fewer guesses is
+  ahead, and the same wins in the same number of guesses share a place. It used to go by name.
+- **The broadcaster or bot, left out of the scoreboard, gets their own stats** when they ask for it, instead of
+  being told they are "sadly not in the Top 5".
+- Session stats are kept by user ID, like the all-time ones: two YouTube viewers with the same display name no
+  longer share one.
 
 - **The update question says when Streamer.bot needs a restart.** A newer UIFramework can be used at once only
   while none is running in your Streamer.bot; otherwise it takes effect after a restart. The dialog now says which
@@ -27,6 +40,22 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - **No answer from the game shows as no answer.** A Try button said "done" and a table showed as empty when the
   game action did not answer.
 - **A late answer is not taken for the next one.** Every request to the game has a variable of its own.
+- **Messages fit YouTube.** YouTube takes 200 characters per message; the scoreboards, `!hlgpersonal` and a long
+  outcome went out in one piece of up to 490 and were cut off. Every message is now sent in pieces that fit the
+  platform (200 on YouTube, 500 on Twitch and Kick), cut between words.
+- **A blocked viewer gets no reply at all.** A blocked viewer on cooldown got the cooldown message, and so did a
+  Twitch chat command while guesses come from channel points.
+- **A typed bet of `1.5` is refused**, not read as 15 (or `2,50` as 250). Thousands separators still work: `1.500`
+  is 1500.
+- **A game reward redeemed while channel points are off is refunded.** It used to keep the channel points and play
+  nothing.
+- **Two guesses at the same moment both count.** The draw, the counters and the points change now happen one guess
+  at a time; two at once could read the same balance and lose one of the two changes.
+- **The log and `hlg_last*` no longer show the last player's points** for a guess whose balance could not be read.
+- **A bot account that cannot be read no longer puts the broadcaster on the scoreboard.**
+- `!hlgpersonal` without a user (a test trigger) logs a warning instead of looking up the stats of nobody.
+- How to play names `guessSessionGuesses` and `guessAlltimeGuesses` among the trigger arguments, and says that the
+  number is kept across restarts (it is not drawn anew at every start).
 
 ## [2.3.1] - 2026-11-12
 
@@ -97,7 +126,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Changed
 
-- The host block in `High-Low Game` and `High-Low Scoreboard` is UIFramework's current one (0.9.11). Nothing changes in
+- The host block in `[HLG] - High-Low Game` and `[HLG] - Scoreboard` is UIFramework's current one (0.9.11). Nothing changes in
   the window; the block can now declare fields that follow a dropdown, a locked layout and masked fields.
 
 ## [2.0.0] - 2026-11-07
