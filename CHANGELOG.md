@@ -4,6 +4,37 @@ Releases from 2.1.0 on are in the [release notes](https://github.com/aaskjer/Hig
 1.x came out before this repository had releases.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [2.3.3] - 2026-11-15
+
+### Added
+
+- **The settings window in French and Brazilian Portuguese,** beside English, German and Spanish: pick it in the
+  window's language list. No native speaker has read the two yet; a wording that reads wrong can be reported with
+  *Fix a translation* on [UIFramework's issues](https://github.com/aaskjer/UIFramework-Streamer.bot/issues/new/choose).
+  Your chat messages stay as you wrote them.
+
+### Changed
+
+- **UIFramework 2.0.0.** The settings action is 0.3.2, the host block UIFramework 2.0.0's, and opening the window
+  offers UIFramework 2.0.0. Nothing in your settings changes.
+- The window's English, German and Spanish texts read plainer.
+
+### Fixed
+
+- **The game reads your settings also while the window saves them.** For a moment during a save there is no
+  settings file, and a guess at that moment went by the defaults. When only `HLG-Settings.json.bak` is left, the
+  game and the window both read that.
+- **A UIFramework another game installed for a newer settings action no longer locks this game's window.** The
+  update notice at Streamer.bot's start takes the newest UIFramework that fits, and passes over a damaged one to the
+  next older.
+- **The update notice no longer names a UIFramework release you skipped,** or any while the release check is off.
+- **A download that breaks off is tried again,** and a damaged `UIFramework\loader.json` is no longer written over
+  when you skip a version.
+- **The Log page's folder button opens the log folder beside Streamer.bot.** After an export to the Desktop it
+  opened an empty folder there. Lines written in the same second show newest first.
+- **Customise mode moves the fields of the Cooldowns page.** *Move up* and *Move down* went past the sender
+  switches there, and nothing moved.
+
 ## [2.3.2] - 2026-11-12
 
 ### Added
